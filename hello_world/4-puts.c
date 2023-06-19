@@ -2,6 +2,7 @@
 /**
  * main - Print
  *
+ * Return:zero success
  */
 int main(void)
 {
