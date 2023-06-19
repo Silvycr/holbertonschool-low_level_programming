@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - Second print 
+ * main - Second print
  *
  * Return: Zero success
  */
