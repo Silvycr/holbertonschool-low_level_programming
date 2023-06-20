@@ -10,7 +10,7 @@ int main(void)
 {
 	char min;
 
-	for (min = 'a'; low <= 'z'; min++)
+	for (min = 'a'; min <= 'z'; min++)
 	{
 		putchar(min);
 	}
