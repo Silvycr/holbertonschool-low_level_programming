@@ -10,12 +10,12 @@ int main(void)
 {
 	char sil, al, co;
 
-	al = 'e';
-	co = 'q';
+	sin = 'e';
+	no = 'q';
 
 	for (sil = 'a'; sil <= 'z'; sil++)
 	{
-		if (sil != al && sil != co)
+		if (sil != sin && sil != no)
 			putchar(sil);
 	}
 	putchar('\n');
