@@ -11,7 +11,7 @@ int main(void)
 	int sa;
 	int cr;
 
-	for (sa = 0; sa <= 99; sa++)
+	for (sa = 0; sa <= 98; sa++)
 	{
 		for (cr = sa + 1; cr <= 99; cr++)
 		{
@@ -21,7 +21,7 @@ int main(void)
 			putchar((cr / 10) + '0');
 			putchar((cr % 10) + '0');
 
-			if (sa == 99 && cr == 99) /*A conditional*/
+			if (sa == 98 && cr == 99) /*A conditional*/
 				continue;
 
 			putchar(',');
