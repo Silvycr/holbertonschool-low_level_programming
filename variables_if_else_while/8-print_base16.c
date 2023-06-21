@@ -15,7 +15,7 @@ int main(void)
 	{
 		putchar(cr);
 	}
-	for (ali = 'a'; ali <= 'p'; ali++)
+	for (ali = 'a'; ali <= 'f'; ali++)
 	{
 		putchar(ali);
 	}
