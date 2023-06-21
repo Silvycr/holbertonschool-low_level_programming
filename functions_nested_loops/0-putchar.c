@@ -7,12 +7,13 @@
  */
 int main(void)
 {
-	char msg[8] = "_putchar";
-	int al;
+	int str[] = {95, 112, 117, 116, 99, 104, 97, 114};
+	int count, sz;
 
-	for (al = 0; al <= 8; al++)
+	sz = sizeof(str) / sizeof(int);
+	for (count = 0; count < sz; count++)
 	{
-		_putchar(msg[al]);
+		_putchar(str[count]);
 	}
 	_putchar('\n');
 
