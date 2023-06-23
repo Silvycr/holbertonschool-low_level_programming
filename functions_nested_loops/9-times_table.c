@@ -5,29 +5,33 @@
  **/
 void times_table(void)
 {
-	int ka, na;
+	int ka, na, ra;
 
-	for (ka = 0; ka < 10; ka++)
+	for (ka = 0; ka <= 9; ka++)
 	{
-		for (na = 0; na < 10; na++)
+		for (na = 0; na <= 9; na++)
 		{
-			if (na == 0)
+			ra = ka * na;
+
+			if ((ra / 10) == 0)
 			{
-				_putchar('0');
-			}
-			else if (ka * na < 10)
-			{
+				if (na != 0)
+					_putchar(' ');
+				_putchar(ra + '0');
+
+				if (na == 9)
+					continue;
 				_putchar(',');
 				_putchar(' ');
-				_putchar(' ');
-				_putchar(ka * na + '0');
 			}
 			else
 			{
+				_putchar((ra / 10) + '0');
+				_putchar((ra % 10) + '0');
+				if (na == 9)
+					continue;
 				_putchar(',');
 				_putchar(' ');
-				_putchar((ka * na) / 10 + '0');
-				_putchar((ka * na) / 10 + '0');
 			}
 		}
 		_putchar('\n');
