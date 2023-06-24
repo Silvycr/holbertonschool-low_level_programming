@@ -6,14 +6,12 @@
  */
 int main(void)
 {
-	int x, y;
+	int x;
+	int contar = 0;
 
-	for (x = 1; x < 1024; x++)
-	{
-		if ((x % 3) == 0 || (x % 5) == 0)
-			y += x;
-	}
-	printf("%d\n", x);
-
+	for (x = 0; x < 1024; x++)
+		if (x % 3 == 0 || x % 5 == 0)
+			contar += x;
+	printf("%i\n", contar);
 	return (0);
 }
