@@ -7,13 +7,9 @@
  **/
 char *_strcpy(char *dest, char *src)
 {
-	int al;
-	int x = 0;
+	char *al = dest;
 
-	while (*src++)
-		x++;
-	al = x;
-	for (x = 0; x <= al; x++)
-		dest[x] = src[x];
-	return (dest);
+	while (*src)
+		*dest++ = *src++;
+	return (al);
 }
