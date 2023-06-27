@@ -9,7 +9,12 @@ char *_strcpy(char *dest, char *src)
 {
 	char *al = dest;
 
-	while (*src)
-		*dest++ = *src++;
+	while (*src != '\0')
+	{
+		*dest = *src;
+		*dest++; 
+		*src++;
+	}
+	*dest = '\0';
 	return (al);
 }
