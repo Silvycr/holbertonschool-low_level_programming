@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - Print name
+ * main - Prints the number of arguments
  * @argc: argument count
  * @argv: argument value
  * Return: Always 0.
