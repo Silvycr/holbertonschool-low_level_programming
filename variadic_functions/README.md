@@ -1,0 +1,2 @@
+## README
+# C - Variadic functions
