@@ -1,49 +1,63 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * strtow - A function that splits a string
- * @str: An input pointer of the string
- * Return: Apointer to concatened strings or NULL if it str is NULL
+ * ch_free_grid - frees a 2 dimensional array.
+ * @grid: multidimensional array of char.
+ * @height: height of the array.
  **/
+void ch_free_grid(char **grid, unsigned int height)
+{
+	if (grid != NULL && height != 0)
+	{
+		for (; height > 0; height--)
+			free(grid[height]);
+		free(grid[height]);
+		free(grid);
+	}
+}
+
+/**
+ * strtow - splits a string into words.
+ * @str: string.
+ * Return: pointer of an array of integers
+ */
 char **strtow(char *str)
 {
-	char **array;
-	int w = 0, x, y, z = 0, lon = 0, contar = 0;
+	char **aout;
+	unsigned int c, height, i, j, a1;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
-	for (; str[w]; w++)
+	for (c = height = 0; str[c] != '\0'; c++)
+		if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
+			height++;
+	aout = malloc((height + 1) * sizeof(char *));
+	if (aout == NULL || height == 0)
 	{
-		if ((str[w] != ' ' || *str != '\t') &&
-				((str[w + 1] == ' ' || str[w + 1] == '\t') || str[w + 1] == '\n'))
-			contar++;
+		free(aout);
+		return (NULL);
 	}
-	if (contar == 0)
-		return (NULL);
-	array = malloc(sizeof(char *) * (contar + 1));
-	if (array == NULL)
-		return (NULL);
-	for (w = 0; str[w] != '\0' && z < contar; w++)
+	for (i = a1 = 0; i < height; i++)
 	{
-		if (str[w] != ' ' || str[w] != '\t')
+		for (c = a1; str[c] != '\0'; c++)
 		{
-			lon = 0;
-			x = w;
-			while ((str[x] != ' ' || str[x] != '\t') && str[x] != '\0')
-				x++, lon++;
-			array[z] = malloc((lon + 1) * sizeof(char));
-			if (array[z] == NULL)
+			if (str[c] == ' ')
+				a1++;
+			if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
 			{
-				for (z = z - 1; z >= 0; z++)
-					free(array[z]);
-				free(array);
-				return (NULL);
+				aout[i] = malloc((c - a1 + 2) * sizeof(char));
+				if (aout[i] == NULL)
+				{
+					ch_free_grid(aout, i);
+					return (NULL);
+				}
+				break;
 			}
-			for (y = 0; y < lon; y++, w++)
-				array[z][y] = str[w];
-			array[z++][y] = '\0';
 		}
+		for (j = 0; a1 <= c; a1++, j++)
+			aout[i][j] = str[a1];
+		aout[i][j] = '\0';
 	}
-	array[z] = NULL;
-	return (array);
+	aout[i] = NULL;
+	return (aout);
 }
