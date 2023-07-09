@@ -6,21 +6,19 @@
  **/
 int main(void)
 {
-	long int a, b, c, d;
+	int i;
+	long int fibonacci[50], sum = 2;
 
-	a = 1;
-	a = 2;
-	c = d = 0;
-	while (c <= 4000000)
+	fibonacci[0] = 1;
+	fibonacci[1] = 2;
+
+	for (i = 2; i < 50; i++)
 	{
-		c = a + b;
-		a = b;
-		b = c;
-		if ((a % 2) == 0)
-		{
-			d += a;
-		}
+		fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+		if ((fibonacci[i] % 2) == 0 && fibonacci[i] < 4000000)
+			sum += fibonacci[i];
 	}
-	printf("%ld\n", d);
+	printf("%ld\n", sum);
+
 	return (0);
 }
